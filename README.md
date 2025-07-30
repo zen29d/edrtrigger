@@ -1,5 +1,3 @@
-# edrtrigger
-
 # EDR Trigger (Non-Malicious Testing)
 
 > [!WARNING]
