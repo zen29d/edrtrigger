@@ -4,7 +4,9 @@
 
 > [!WARNING]
 >
-> Set of commands are intended for **non-malicious testing** to trigger simple EDR/AV alerts or detections. Although all these are non-malicious and use non-routable TLD (`.local`), they should only be executed in production environments if permitted by **compliance policies or explicit exceptions**. Proceed at your own risk.
+> Set of commands are intended for **non-malicious testing** to trigger simple EDR/AV alerts or detections. Although all these are non-malicious and use non-routable TLD (`.local`), they should only be executed in production environments if permitted by **compliance policies or explicit exceptions**.
+>
+> _*Proceed at your own risk*_.
 
 ## CMD
 
